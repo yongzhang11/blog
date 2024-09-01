@@ -1,0 +1,145 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>商品购物网</title>
+
+    <link href="/static/style/common.css" rel="stylesheet" type="text/css"/>
+    <link href="/static/style/home.css" rel="stylesheet" type="text/css"/>
+    <link href="/static/style/sppd.css" rel="stylesheet" type="text/css"/>
+    <style>
+        .left,
+        .right {
+            position: fixed;
+            top: 250px;
+        }
+
+        .left {
+            left: 0;
+        }
+
+        .right {
+            right: 0;
+        }
+
+        .left span,
+        .right span {
+            width: 20px;
+            height: 20px;
+            background: #ccc;
+            font-size: 14px;
+            color: #333;
+            position: absolute;
+            right: 0;
+            top: 0;
+            text-align: center;
+            cursor: pointer;
+        }
+    </style>
+    <script type="text/javascript" src="/static/js/jquery-1.4.2.min.js"></script>
+    <script>
+        $(function () {
+            // $('.left span').click(function(){
+            //     $('.left').hide(500)
+            // })
+            // $('.right span').click(function(){
+            //     $('.right').hide(500)
+            // })
+            // 父级选择器
+            $('span').click(function () {
+                $(this).parent().hide(1000)
+            })
+        })
+    </script>
+</head>
+<body>
+<div class="left"><img src="/static/images/left.jpg" alt=""> </a><span>X</span></div>
+<div class="right"><img src="/static/images/right.jpg" alt=""><span>X</span></div>
+<!--网站顶部-->
+<div class="webtop">
+    {% include "shop/top.html" %}
+</div>
+
+<!--搜索和导航-->
+<div class="sounav">
+    {% include "shop/search.html" %}
+</div>
+
+<!-- top2-->
+<div class="fcpd">
+    <!--全部商品分类-->
+    <div class="qbspfl_1">
+
+        {% include "shop/news.html" %}
+    </div>
+    <!--图片轮播-->
+    <div class="sp_banner">
+        {% include "shop/image.html" %}
+    </div>
+
+    <div class="zxsj">
+        {% include "shop/zxsj.html" %}
+    </div>
+</div>
+<!-- 1F -->
+<span id="productList">
+
+<div class="ff">
+      <div class="ff_1">
+      <div class="wzbt">
+      <span> 最热品牌</span>
+      </div>
+      <div class="more"></div>
+      </div>
+
+      <div class="ff_2_right">
+
+ {% for item in goods %}
+     {% if item.ptype_id == 4 %}
+         <div class="shangpin_2">
+      <a href="productLook?id={{ item.id }}" target='_blank'>
+      <img src="/media/{{ item.image }}" width='160px' height='160px'/></a>
+      <br/>
+      <a href="productLook?id={{ item.title }}" target='_blank'></a>
+             <br/>
+      <br/><span>会员价￥{{ item.price }}</span>
+      </div>
+     {% endif %}
+ {% endfor %}
+      </div>
+</div>
+
+
+<div class="ff">
+      <div class="ff_1">
+      <div class="wzbt">
+      <span> 特价专区 </span>
+      </div>
+      <div class="more"></div>
+      </div>
+
+      <div class="ff_2_right">
+
+ {% for item in goods %}
+     {% if item.ptype_id == 1 %}
+         <div class="shangpin_2">
+      <a href="productLook?id={{ item.id }}" target='_blank'>
+      <img src="/media/{{ item.image }}" width='160px' height='160px'/></a>
+      <br/>
+      <a href="/shop/productLook?id={{ item.title }}" target='_blank'></a>
+             <br/>
+      <br/><span>会员价￥{{ item.price }}</span>
+      </div>
+     {% endif %}
+ {% endfor %}
+      </div>
+</div>
+
+
+
+</span>
+<div style="width:960px; height:auto; margin:10px auto 0 auto;">
+    {% include "shop/foot.html" %}
+</div>
+</body>
+</html>

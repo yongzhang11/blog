@@ -1,0 +1,64 @@
+{% load staticfiles %}
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>{{ SITE_NAME }}</title>
+<meta name="keywords" content="{{ SITE_NAME }}" />
+<meta name="description" content="{{ SITE_DESC }}" />
+<link href="{% static 'css/base.css' %}" rel="stylesheet">
+<link href="{% static 'css/index.css' %}" rel="stylesheet">
+{% block custom_css %}{% endblock %}
+<script type="text/javascript" src="{% static 'js/jquery.min.js' %}"></script>
+<script type="text/javascript" src="{% static 'js/sliders.js' %}"></script>
+<!--[if lt IE 9]>
+<script src="js/modernizr.js"></script>
+<![endif]-->
+{% block custom_js %}{% endblock %}
+</head>
+<body>
+<header>
+  <div class="logo">
+      <h1>{{ SITE_NAME }}</h1>
+     
+  </div>
+  <nav id="topnav" >
+
+  <div style="width:1000px;">
+    <ul>
+{#     <a href="/my" >我的主页</a>#}
+     <a href="/profile/" >个人信息</a>
+{#     <a href="/record" >转账记录</a>#}
+
+      <div class="f_r">
+           <a href="/admin/" style="padding: 0 4px; ">欢迎 <b>{{ request.user.username }}</b>! 
+           </a>&nbsp;<a href="{% url 'logout' %}">注销</a>
+        
+       </div>
+    </ul>
+  </div>
+
+  </nav>
+</header>
+<article>
+  <div class="l_box f_l">
+      {% block left_content %}{% endblock %}
+  </div>
+
+  <!--r_box end -->
+</article>
+<footer>
+  <div style="margin-left:350px; float:left;" >
+  <p class="ft-copyright">{{ SITE_NAME }} &copy; 2018-2019 ICP备000000001号-1</p>
+  </div>
+  <div id="tbox">  <a id="gotop" href="javascript:void(0)"></a> </div>
+  <script type="text/javascript">
+    $(document).ready(function(){
+        $('#gotop').click(function(){
+            $('html,body').animate({scrollTop:0},'slow');
+        });
+    });
+</script>
+</footer>
+</body>
+</html>

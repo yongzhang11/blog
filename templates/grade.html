@@ -1,0 +1,128 @@
+{% extends 'base.html' %}
+{% block custom_css %}
+<link href="static/css/main.css" rel="stylesheet">
+{% endblock %}
+{% block content %}
+  <div class="container">
+    <div class="con_content">
+      <div class="about_box">
+        <h2 class="nh1"><span>您现在的位置是：<a href="/" target="_blank">网站首页</a>>><a href="#" target="_blank">信息浏览</a></span><b>成绩单</b></h2>
+        <div class="f_box">
+          <p class="a_title">个人成绩单</p>
+          <p class="p_title"></p>
+          <!--  <p class="box_p"><span>发布时间：2017-07-07 15:12:42</span><span>作者：唐孝文</span><span>来源：稽查支队</span><span>点击：111056</span></p>--> 
+          <!-- 可用于内容模板 --> 
+        </div>
+        <ul class="about_content">
+          <!-- <p> </p> -->
+        <table class="bordered">
+            <thead><tr>
+                      <th>学年</th> 
+                      <th>学期</th> 
+                      <th>课程</th>
+                      <th>学分</th> 
+                      <th>绩点</th>
+                      <th>成绩</th>   
+            </tr></thead> 
+            <tbody>
+            {% for m in gd %}
+            <tr> 
+                         <td>{{m.year}}</td> 
+                          <td>{{m.term}}</td> 
+                          <td>{{m.title}}</td> 
+                          <td>{{m.point}}</td> 
+                          <td>{{m.gpa}}</td> 
+                          <td>{{m.mark}}</td> 
+           </tr> 
+           {% endfor %}
+           </tbody>
+        </table>
+       
+        </ul>
+      </div>
+    </div>
+    <style type="text/css">
+table {    
+*border-collapse: collapse; /* IE7 and lower */    
+border-spacing: 0;    
+width: 100%;    
+}    
+.bordered {    
+border: solid #ccc 1px;    
+-moz-border-radius: 6px;    
+-webkit-border-radius: 6px;    
+border-radius: 6px;    
+-webkit-box-shadow: 0 1px 1px #ccc;    
+-moz-box-shadow: 0 1px 1px #ccc;    
+box-shadow: 0 1px 1px #ccc;    
+}    
+    
+.bordered tr:hover {    
+background: #fbf8e9;    
+-o-transition: all 0.1s ease-in-out;    
+-webkit-transition: all 0.1s ease-in-out;    
+-moz-transition: all 0.1s ease-in-out;    
+-ms-transition: all 0.1s ease-in-out;    
+transition: all 0.1s ease-in-out;    
+}    
+    
+.bordered td, .bordered th {    
+border-left: 1px solid #ccc;    
+border-top: 1px solid #ccc;    
+padding:3px;/*供修改*/  
+text-align: center;/*供修改*/    
+}    
+    
+.bordered th {    
+background-color: #dce9f9;    
+background-image: -webkit-gradient(linear, left top, left bottom, from(#ebf3fc), to(#dce9f9));    
+background-image: -webkit-linear-gradient(top, #ebf3fc, #dce9f9);    
+background-image: -moz-linear-gradient(top, #ebf3fc, #dce9f9);    
+background-image: -ms-linear-gradient(top, #ebf3fc, #dce9f9);    
+background-image: -o-linear-gradient(top, #ebf3fc, #dce9f9);    
+background-image: linear-gradient(top, #ebf3fc, #dce9f9);    
+-webkit-box-shadow: 0 1px 0 rgba(255,255,255,.8) inset;    
+-moz-box-shadow:0 1px 0 rgba(255,255,255,.8) inset;    
+box-shadow: 0 1px 0 rgba(255,255,255,.8) inset;    
+border-top: none;    
+text-shadow: 0 1px 0 rgba(255,255,255,.5);    
+}    
+    
+.bordered td:first-child, .bordered th:first-child {    
+border-left: none;    
+}    
+    
+.bordered th:first-child {    
+-moz-border-radius: 6px 0 0 0;    
+-webkit-border-radius: 6px 0 0 0;    
+border-radius: 6px 0 0 0;    
+}    
+    
+.bordered th:last-child {    
+-moz-border-radius: 0 6px 0 0;    
+-webkit-border-radius: 0 6px 0 0;    
+border-radius: 0 6px 0 0;    
+}    
+    
+.bordered th:only-child{    
+-moz-border-radius: 6px 6px 0 0;    
+-webkit-border-radius: 6px 6px 0 0;    
+border-radius: 6px 6px 0 0;    
+}    
+    
+.bordered tr:last-child td:first-child {    
+-moz-border-radius: 0 0 0 6px;    
+-webkit-border-radius: 0 0 0 6px;    
+border-radius: 0 0 0 6px;    
+}    
+    
+.bordered tr:last-child td:last-child {    
+-moz-border-radius: 0 0 6px 0;    
+-webkit-border-radius: 0 0 6px 0;    
+border-radius: 0 0 6px 0;    
+}    
+    </style>
+  </div>
+  <!-- container代码 结束 -->
+  
+{% endblock %}

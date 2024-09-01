@@ -1,0 +1,64 @@
+<script type="text/javascript" src="/static/js/jquery-1.4.2.min.js"></script>
+
+<div class="sou">
+    	<div class="logo">
+        <h1 style="color:red; margin-top:50px">
+        商品购物网</h1>
+                <!-- <h1 style="color:red; margin-top:50px"> -->
+        <!-- XXX购物网站</h1> -->
+ 
+
+
+        <!-- <img src="/static/images/logo.jpg"/> --></div><!--LOGO-->
+        <!--搜索-->
+        <form action="/shop/search/" method="post">
+        <div class="sousuo">
+        	<div class="sp"><span class="soubg" >商品</span></div>
+            <div class="splr">
+           	  <div class="float_left splr_left"><input name="kw"  type="text" placeholder="请输入商品名称" style="border:0px; width:300px; font-size:14px; padding-top:3px;  height:20px;" class="666"/>
+                {% csrf_token %}
+              </div>
+                <div class="float_left"> <input  type="image" src="/static/images/soutp.jpg" /></div>
+            </div>
+        </div>
+        </form>
+     </div>
+  
+     <!--导航-->
+     <div class="nav">
+     	<div class="wz" id="menu0"><a href="/shop/" >首  页</a></div>
+        <div class="wz" id="menu1"><a href="/shop/products">全部</a></div>
+        <div class="wz" id="menu2"><a href="/shop/shopcar">购物车</a></div>
+        <span id="menuList"></span>
+
+        {% if user.username %}
+        <div class="wz" id="menu3"><a href="/shop/order">我的订单</a></div>
+        <div class="wz" id="menu4"><a href="/shop/usercenter">用户中心</a></div>
+       {% endif %}
+        	
+     </div> 
+     
+     <script type="text/javascript">
+  
+ 	$(function(){
+		$.post("getMenuParent.action",null,function(data){
+			var menus=data.menuList;
+			var menu="";
+			var type="<option value=''>请选择</option>";
+			for(var i=0;i<menus.length;i++){
+				menu+="<div class=\"wz\" id=\"menu2"+i+"\"><a href=\"productListByFront.action?menu=2"+i+"&typeName="+menus[i].id+"\">"+menus[i].name+"</a></div>";
+				type+="<option value=\""+menus[i].id+"\">"+menus[i].name+"</option>";
+			}
+			$("#menuList").html(menu);
+			$("#productType").html(type);
+			if('${menu}'!=''){
+   			$("#menu${menu}").attr("class","navbg");
+	   		}else{
+   			 $("#menu0").attr("class","navbg");
+	   		}
+	   		$("#productType").val('${typeName}');
+		},"json");
+	
+	});
+	
+     </script>     

@@ -1,0 +1,20 @@
+<link href="/static/css/thickbox.css" rel="stylesheet" type="text/css" />
+    <script type="text/javascript" src="/static/js/jquery-1.4.2.min.js"></script>
+ <script type="text/javascript" src="/static/js/openwindow.js"></script>
+
+<div class="float_left" style="width:960px; height:25px">
+  <div class="top_1"><span>您好，商品购物网站欢迎你！ </span>
+  </div>
+  {%  if user.username %}
+
+  <div class="top_2"> <a href="/shop/shopcar"> <img src="/static/images/gwc.gif"/>&nbsp;&nbsp; 我的购物车 </a>
+
+ &emsp;  &emsp;  &emsp;  {{user.username}} | <a href="/">退出</a>
+ <!-- <a href="/" style="color: #F00; " >返回首页</a> -->
+  </div>
+ {% else %}
+   <div class="top_2">
+ <!-- <a href="/shop/loggin">登录</a> | <a href="/shop/reg">注册</a> -->
+   </div>
+ {% endif %}
+  </div

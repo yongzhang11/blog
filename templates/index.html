@@ -1,0 +1,92 @@
+{% extends 'base.html' %} 
+<!-- # 对父模板中进行扩展 -->
+{% block custom_css %}
+<link href="/static/css/index.css" rel="stylesheet">
+{% endblock %} 
+<!-- # 以上对父模板中同名进行重写 -->
+{% block content %} 
+<!-- # 将所用博客标题列表显示出来 -->
+  <div class="jztop"></div>
+  <div class="container">
+    <div class="bloglist f_l">
+
+     {% for article in article_list %}
+      <h3><a href="/article/{{article.id}}">{{ article.title}}</a></h3> 
+	  <!-- # {{ article.title}} 获得到一篇博客的title字段的值  article是实例对象 -->
+      <figure> <img src="/media/{{article.header_img}}"></figure>
+      <ul>
+        <p> {{ article.text |safe| slice:":150"}} ......</p>
+        <a title="" href="/article/{{article.id}}" target="_blank" class="readmore">阅读全文&gt;&gt;</a>
+      </ul>
+      <p class="dateview"><span>{{ article.publish_time}}</span><span>分类：{{ article.cate.name}}</span><span>作者：张勇</span><span>浏览次数：{{ article.browse_count}}</span></p>
+     {% endfor %}
+
+  <div class="pagelist">
+<br><br>
+  第{{page}}页&emsp;<a href="/">首页</a>
+
+   {% if article_list.has_previous %}
+      <a href="?page={{page | add:"-1"}}">上一页</a>
+    {% else %}
+    
+   {% endif %}
+
+ {% if article_list.has_next %}
+      <a href="?page={{page | add:"1"}}">下一页</a>
+    {% else %}
+     
+    {% endif %}
+    </div>
+    </div>
+
+
+    <div class="r_box f_r">
+      <div class="tit01">
+        <h3 class="tit">关注我</h3>
+        <div class="gzwm">
+          <ul>
+            <li><a class="email" href="#" target="_blank">我的电话</a></li>
+            <li><a class="qq" href="https://mail.qq.com/" target="_blank">我的邮箱</a></li>
+            <li><a class="tel" href="E:\Program Files\Tencent\QQ\Bin\QQScLauncher.exe" target="_blank">我的QQ</a></li>
+            <li><a class="prize" href="/grade">个人奖项</a></li>
+          </ul>
+        </div>
+      </div>
+      <!--tit01 end-->
+      <div class="tuwen">
+        <h3 class="tit">音乐欣赏</h3>
+ <iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width=300 height=400 src="http://music.163.com/outchain/player?type=0&id=44454257&auto=0&height=430"></iframe>     
+        </div>
+      <div class="tuwen">
+        <h3 class="tit">图文推荐</h3>
+        <ul>
+        {% for h in hot %}
+
+         <li><a href="/"><img src="/media/{{h.header_img}}"><b>{{ h.title | slice:":20"}}...</b></a>
+            <p><span class="tulanmu"><a href="/alist">主要文章</a></span><span class="tutime">{{ h.publish_time}}</span></p>
+          </li>
+
+         {% endfor %}
+        </ul>
+      </div>
+
+      <div class="ph">
+        <!-- <h3 class="tit">点击排行</h3> -->
+        <!-- <ul class="rank"> -->
+          <!-- <li><a href="" title="" target="_blank"></a> -->
+<!-- 		  <ol>
+			{%for article_list in most_viewed %}
+			<li>
+				<a href="{{article_list.get_url_path}}">{{ article_list.title}}</a>
+			</li>
+			{% endfor%}
+			</ol> -->
+        </ul>
+      </div>
+      <div class="ad"> <img src="/static/images/03.jpg"> </div>
+    </div>
+  </div>
+  <!-- container代码 结束 -->
+  <div class="jzend"></div>
+{% endblock %}
+

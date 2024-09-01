@@ -1,0 +1,90 @@
+{% extends 'base.html' %}
+{% block custom_css %}
+    <link href="static/css/main.css" rel="stylesheet">
+{% endblock %}
+{% block content %}
+    <div class="container">
+        <div class="con_content">
+            <div class="about_box">
+                <h2 class="nh1"><span>您现在的位置是：<a href="/" target="_blank">网站首页</a>>><a href="#" target="_blank">信息浏览</a></span><b>留言墙</b>
+                </h2>
+                <div class="f_box">
+                    <div class="com">
+                        <form action="/message" method="post">
+                            {% csrf_token %}
+                            <p>输入你的昵称：<input type="text" name="name"> <span style="color:red;">{{ info }}</span></p><br>
+                            <textarea name="msg" class="lj" cols="72" rows="11"> </textarea>
+                            <br> <br>
+                            <button class="btn" type="submit">给我留言</button>
+                        </form>
+                    </div>
+
+                    <div class="m_list">
+                        <ul>
+                            {% for msg in msgs %}
+
+                                <li class="entry">
+                                    <div class="re_info"> {{ msg.name }} &emsp;{{ msg.publish_time }} </div>
+                                    <br> {{ msg.text }} </li>
+
+                            {% endfor %}
+                        </ul>
+                    </div>
+
+
+                </div>
+
+                <!-- container代码 结束 -->
+            </div>
+        </div>
+
+    </div>
+    <style type="text/css"> .com {
+        margin: 0 auto;
+        max-height: 400px;
+        padding: 90px 80px;
+        background-image: url("/static/images/bg.png");
+        background-repeat: no-repeat;
+    }
+
+    .lj {
+        font-size: 20px;
+        margin: 0 auto;
+        padding: 10px 10px;
+    }
+
+    .btn {
+        background: #606c76;
+        background: -webkit-linear-gradient(#606c76, #444444);
+        background: linear-gradient(#606c76, #444444);
+        border-radius: 6px;
+        padding: 8px 20px;
+        color: #ffffff;
+        display: block;
+        font: normal 400 24px/1 "Calibri", sans-serif;
+        text-align: center;
+        align: center;
+        margin: 0 auto;
+        text-shadow: 1px 1px #000000;
+    }
+
+    .m_list {
+        font-size: 14px;
+        padding-left: 80px;
+        padding-top: 50px;
+    }
+
+    .entry {
+        width: 728px;
+        padding-bottom: 5px;
+        border-top: 1px #fff solid;
+        border-bottom: 1px #ddd dotted;
+    }
+
+    .re_info {
+        padding: 10px 0 0 0;
+        font-size: 12px;
+        color: #888
+    } </style>
+    <!-- container代码 结束 -->
+{% endblock %}

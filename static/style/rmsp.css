@@ -1,0 +1,158 @@
+
+.left-container
+{
+	width: 190px;
+	float: left;
+}
+
+.l-box
+{
+	border-bottom: #d3d3d3 0px solid;
+	border-left: #d3d3d3 0px solid;
+	margin-bottom: 10px;
+	color: #333;
+	border-top: #d3d3d3 0px solid;
+	border-right: #d3d3d3 0px solid;
+}
+.l-box H3
+{
+	border-bottom: #d3d3d3 1px solid;
+	padding-left: 24px;
+	font:  14px/30px simsun;
+	background: url(../Images/i.gif) repeat-x 0px -242px;
+	color:#CC0000;
+}
+.l-box UL
+{
+	margin: 5px 7px 8px 10px;
+}
+.l-box UL LI
+{
+	border-bottom: #ddd 1px dashed;
+	position: relative;
+	line-height: 32px;
+	padding-left: 20px;
+	zoom: 1;
+}
+.l-box LI A
+{
+	color: #555;
+	text-decoration: none;
+}
+.l-box LI S
+{
+	z-index: 2;
+	position: absolute;
+	width: 21px;
+	display: block;
+	background: url(../Images/i.gif) no-repeat 1000em 1000em;
+	height: 21px;
+	top: 6px;
+	left: 0px;
+}
+.l-box LI .s1
+{
+	background-position: -28px -45px;
+}
+.l-box LI .s2
+{
+	background-position: -48px -45px;
+}
+.l-box LI .s3
+{
+	background-position: -67px -45px;
+}
+.l-box LI .s4
+{
+	background-position: -85px -45px;
+}
+.l-box LI .s5
+{
+	background-position: -104px -45px;
+}
+.l-box LI .s6
+{
+	background-position: -169px -483px;
+}
+.l-box LI .s7
+{
+	background-position: -190px -483px;
+}
+.l-box LI .s8
+{
+	background-position: -213px -483px;
+}
+.l-box LI .s9
+{
+	background-position: -235px -483px;
+}
+.l-box LI .s10
+{
+	background-position: -258px -483px;
+}
+.hot-scenic .cur IMG
+{
+	margin: 3px 0px 14px;
+	display: block;
+}
+.hot-scenic LI IMG
+{
+	display: none;
+}
+.hot-scenic LI S
+{
+	width: 15px;
+	height: 19px;
+	top: 8px;
+}
+.hot-scenic LI .s1
+{
+	background-position: -285px 0px;
+}
+.hot-scenic LI .s2
+{
+	background-position: -285px -19px;
+}
+.hot-scenic LI .s3
+{
+	background-position: -285px -38px;
+}
+.hot-scenic LI .s4
+{
+	background-position: -285px -57px;
+}
+.hot-scenic LI .s5
+{
+	background-position: -285px -76px;
+}
+.hot-scenic LI .s6
+{
+	background-position: -285px -95px;
+}
+.hot-scenic LI .s7
+{
+	background-position: -285px -114px;
+}
+.hot-scenic LI .s8
+{
+	background-position: -285px -133px;
+}
+.hot-scenic LI .s9
+{
+	background-position: -285px -152px;
+}
+.hot-scenic LI .s10
+{
+	background-position: -285px -171px;
+}
+*
+{
+	padding-bottom: 0px;
+	list-style-type: none;
+	margin: 0px;
+	padding-left: 0px;
+	padding-right: 0px;
+	list-style-image: none;
+	text-decoration: none;
+	padding-top: 0px;
+}

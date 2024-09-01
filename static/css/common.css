@@ -1,0 +1,300 @@
+﻿@charset "utf-8";
+
+
+/*主体*/
+body {
+	padding: 0px;
+	margin: 0px;
+	border: 0px;
+	font-family: Arial, "宋体";
+	font-size: 12px;
+}
+
+img {
+	border: 0;
+	outline-style: none;
+}
+
+a {
+	color: #0657AB;
+	text-decoration: none;
+	font-family: Arial, "宋体";
+	outline-style: none;
+}
+
+a:hover {
+	color: #FF0000;
+	outline-style: none;
+}
+
+/*头部背景*/
+.top {
+	background: url(../images/top_bg.jpg);
+}
+
+/*网站导航*/
+.dh_select {
+	background: gray;
+}
+
+.dh_jiao_1 {
+	background: url(../images/dh_jiao_1.gif);
+}
+
+.dh_center {
+	background: url(../images/dh_center.gif);
+}
+
+.dh_line {
+	background: url(../images/dh_line.gif);
+}
+
+.dh_jiao_2 {
+	background: url(../images/dh_jiao_2.gif);
+}
+
+/*网站左部*/
+.nav_style_1 {
+	font-size: 12px;
+	color: #033d61;
+}
+
+.nav_style_2 {
+	font-size: 12px;
+	color: #033d61;
+	cursor: hand;
+}
+
+.nav_top {
+	background: url(../images/nav_top.gif);
+	font-size: 12px;
+	color: #FFFFFF;
+	padding-left: 32px;
+}
+
+.nav_parent {
+	background: url(../images/nav_par.gif);
+	font-weight: normal;
+	color: #ffcc00;
+	position: relative;
+	top: 2px;
+	cursor: hand;
+	font-size: 12px;
+	color: #FFFFFF;
+	padding-left: 28px;
+}
+
+.nav_child {
+	background: url(../images/nav_chi.gif);
+}
+
+.nav_child_td_1 {
+	font-size: 12px;
+	color: #033d61;
+	cursor: hand;
+}
+
+.nav_child_td_2 {
+	background: url(../images/nav_chi_td_3.gif);
+}
+
+.nav_bottom {
+	background: url(../images/nav_bottom.gif);
+}
+
+/*网站中部表格*/
+.table_box_1 {
+	background: url(../images/table_box_1.gif);
+}
+
+.table_box_2 {
+	background: url(../images/table_box_2.gif);
+}
+
+.table_box_2 input {
+	text-decoration: none;
+	outline-style: none;
+}
+
+.table_box_3 {
+	background: url(../images/table_box_3.gif);
+}
+
+.table_box_4 {
+	background: url(../images/table_box_4.gif);
+}
+
+.table_box_5 {
+	background: url(../images/table_box_5.gif);
+}
+
+.table_box_6 {
+	background: url(../images/table_box_6.gif);
+}
+
+.table_box_7 {
+	background: url(../images/table_box_7.gif);
+}
+
+.table_box_8 {
+	background: url(../images/table_box_8.gif);
+}
+
+.table_list {
+	background: #b5d6e6;
+	border: 0;
+}
+
+.table_list input {
+	text-decoration: none;
+	outline-style: none;
+}
+
+.table_list #rows_title td {
+	background: url(../images/table_1.gif);
+	font-size: 12px;
+	text-align: center;
+	height: 22px;
+}
+
+.table_list_rows_0 {
+	font-size: 12px;
+	height: 25px;
+	background: #c1ebff;
+}
+
+.table_list_rows_1 {
+	font-size: 12px;
+	height: 25px;
+	background: #ffffff;
+}
+
+.table_list_rows_2 {
+	font-size: 12px;
+	height: 25px;
+	background: url(../images/tableto.jpg);
+}
+
+/*网站页码*/
+.page_td {
+	width: 50px;
+	height: 20px;
+	text-align: right;
+	vertical-align: middle;
+}
+
+/*网站按钮*/
+.button_02 {
+	
+	text-decoration: none;
+	cursor: hand;
+	padding-top: 2px;
+	height: 20px;
+	width: 44px;
+	border: 0;
+	outline-style: none;
+}
+
+.button_04 {
+
+	text-decoration: none;
+	cursor: hand;
+	padding-top: 2px;
+	height: 20px;
+	width: 90px;
+	border: 0;
+	outline-style: none;
+}
+
+.select {
+	background: url("../images/search.png") no-repeat;
+	width: 16px;
+	height: 16px;
+	border: 0;
+	cursor: pointer;
+	text-decoration: none;
+	outline-style: none;
+	vertical-align: middle;
+}
+
+/*网站底部*/
+.down_td_1 {
+	background: url(../images/down_1.gif);
+	line-height: 6px;
+}
+
+.down_td_2 {
+	background: url(../images/down_2.gif);
+	line-height: 6px;
+}
+
+.down_td_3 {
+	background: url(../images/down_3.gif);
+	line-height: 6px;
+}
+
+/*搜索栏*/
+.search {
+	background: url(../images/search_bg.gif) top repeat-x;
+	background-color: #f0f5fa;
+	font-size: 12px;
+	font-family: Arial, "宋体";
+	padding-top: 10px;
+	padding-left: 12px;
+	margin-left: 3px;
+	margin-top: 10px;
+	margin-bottom: 4px;
+	border: 1px solid #99CCCC;
+	vertical-align: middle;
+}
+
+.search input {
+	font-size: 12px;
+	font-family: Arial, "宋体";
+	vertical-align: middle;
+}
+
+.divborder {
+	background: #ECF5FF;
+	width: 100%;
+	height: auto;
+}
+
+.tablemail {
+	padding: 10px;
+	width: 100%;
+}
+
+.textinput {
+	width: 95%;
+	border: #afcded double 2px;
+	height: 20px;
+}
+
+.ulfj {
+	list-style: none
+}
+
+.ulemail {
+	list-style: none;
+}
+
+.ulemail li {
+	font-size: 12px;
+	color: #8fa1af;
+}
+
+.ulxz {
+	list-style: none;
+	margin: 5px 0 0 0;
+}
+
+.ulxz li {
+	float: left;
+	margin-left: 15px;
+}
+
+/*邮箱状态*/
+em{background: url(../images/mail0bceb6.png) no-repeat scroll 0 0 transparent;display:block;width:18px;height:18px;}
+em.m0{background-position:-48px -0px;}
+em.m1{background-position:-48px -15px;}

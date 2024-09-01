@@ -1,0 +1,47 @@
+{% extends 'base.html' %}
+{% block custom_css %}
+    <link href="static/css/main.css" rel="stylesheet">
+    <link href="static/css/jquery.fs.boxer.css" rel="stylesheet">
+    <style>
+        .baguetteBox {
+            width: 900px;
+            margin: 0 auto;
+            font-size: 0;
+        }
+
+        .baguetteBox img {
+            display: inline-block;
+            width: 215px;
+            height: 150px;
+            padding: 5px;
+        }
+    </style>
+{% endblock %}
+{% block content %}
+    <div class="container">
+        <div class="con_content">
+            <div class="about_box">
+                <h2 class="nh1"><span>您现在的位置是：<a href="/" target="_blank">网站首页</a>>><a href="#" target="_blank">相册</a></span><b>相册</b>
+                </h2>
+
+                <div class="lispic">
+                    <ul>
+                        {% for item in album %}
+                            <li><a href="{{ item.path.url }}" class="boxer "><img
+                                    src="{{ item.path.url }}"><span>{{ item.title }}</span></a></li>
+                        {% endfor %}
+                    </ul>
+                </div>
+            </div><div class="pagelist"><a href="/">首页</a></div>
+<!--             页次：1/1 每页25 总数10<a href="/">上一页</a><a href="/">下一页</a><a
+                    href="/">尾页</a> -->
+        </div>
+
+        <div class="blank"></div>
+        <script src="static/js/jquery.fs.boxer.min.js"></script>
+        <script type="text/javascript"> $('.boxer').boxer();
+        </script>
+    </div>
+    <!-- container代码 结束 -->
+
+{% endblock %}

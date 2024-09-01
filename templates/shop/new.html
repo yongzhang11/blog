@@ -1,0 +1,15 @@
+<div class="Four">
+    <!-- 热销商品-->
+    <div class="rxsp">
+        <div class="wzbt_3">热销商品</div>
+        <div class="newsList"> <!-- 使用div代替span，因为这里包含块级元素 -->
+            {% for item in goods %}
+                <div class="rxsp_1">
+                    <div class="rxsp_1_2">
+                        <a href="productLook?id={{ item.id }}" target='_blank'>{{ item.title }}</a>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+</div>

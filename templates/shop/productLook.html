@@ -1,0 +1,183 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <title>商品购物网</title>
+    <link href="/static/style/common.css" rel="stylesheet" type="text/css"/>
+    <link href="/static/style/home.css" rel="stylesheet" type="text/css"/>
+    <link href="/static/style/search.css" rel="stylesheet" type="text/css"/>
+    <link href="/static/style/detailed.css" rel="stylesheet" type="text/css"/>
+    <link href="/static/style/dp.css" rel="stylesheet" type="text/css"/>
+    <link href="/static/style/scheduled.css" rel="stylesheet" type="text/css"/>
+
+</head>
+<script type="text/javascript" src="/static/js/jquery-1.4.2.min.js"></script>
+<script type="text/javascript" src="/static/js/openwindow.js"></script>
+<script type="text/javascript">
+    window.onload = function fangDa() {
+        magnifier.init({
+            cont: document.getElementById('magnifier'),
+            img: document.getElementById('magnifierImg'),
+            mag: document.getElementById('mag'),
+            scale: 3
+        });
+    }
+
+    function addProduct(id) {
+        var amount = $("#amount").val();
+        // var total=$("#totalAmount").val();
+        var reg = /^([1-9][0-9]*)$/;
+
+        if (!reg.test(amount)) {
+            alert("数量不正确！");
+            return;
+        }
+        // if(parseInt(amount)>parseInt(total)){
+        // 	alert("购买数量不能大于库存！");
+        // 	return;
+        // }
+        window.location.href = "/shop/addProductCar?id=" + id + "&amount=" + amount;
+    }
+
+    // function page(currentPage){
+    // 		$("#page").val(currentPage);
+    // 		document.pageForm.submit();
+    // 	}
+    // 	$(function(){
+    // 		var score=$("#totalScore").val();
+    // 		var values="";
+    // 		for(var i=0;i<score;i++){
+    // 		  values+="<img src='images/star1.gif'/>";
+    // 		}
+    // 		$("#star").html(values);
+    // 	});
+
+
+    // $(function(){
+    // var size=$("#size").val();
+    // var array=size.split(",");
+    // var values="";
+    // for(var i=0;i<array.length;i++){
+    // 	values+="<span id=\"select"+i+"\" onclick=\"selectSize("+i+")\" style=\"cursor: pointer;\">"+array[i]+"</span>&nbsp;&nbsp;";
+    // }
+    // $("#sizeSelect").html(values);
+    // });
+    // var old;
+    // function selectSize(id){
+    // 	if(old!=id){
+    // 	$("#select"+id).attr("style","cursor: pointer;background: green;");
+    // 	$("#select"+old).attr("style","cursor: pointer;");
+    // 	var size=$("#select"+id).html();
+    // 	$("#selectSize").val(size);
+    // 	}
+    // 	old=id;
+    // }
+
+    function buynow(id) {
+        var amount = $("#amount").val();
+        window.location.href = "/shop/checknow/?id=" + id + "&amount=" + amount;
+
+    }
+</script>
+<body>
+<!--网站顶部-->
+<input type="hidden" value="${product.stock}" id="totalAmount">
+<input type="hidden" id="totalScore" value="${score}">
+<!--网站顶部-->
+<div class="webtop">
+    {% include "shop/top.html" %}
+</div>
+
+<!--搜索和导航-->
+<div class="sounav">
+    {% include "shop/search.html" %}
+</div>
+
+
+{#<div class="xdhlr">首页 &gt;商品 &gt;详细</div>#}
+{#<a class="outer-link" href="/reg/">马上注册</a>#}
+
+<div class="xdhlr">
+    <a class="xdhlr" href="/shop/">首页></a>
+    <a class="xdhlr" href="/shop/products/">商品></a>
+    <a class="xdhlr" href="#">详细</a>
+</div>
+<div style="width:960px; height:auto; margin:0 auto 10px auto;  ">
+    <div class="base">
+        <div class="xdhlr">
+            <div class="float_left webleft">
+                {% include "shop/new.html" %}
+            </div>
+
+        </div>
+        <!--商品名称-->
+        <div class="float_left" style="width:738px; height:auto;">
+            <div class="spbtmc">{{ product.title }}</div>
+            <div class="spgm">
+                <div class="spgm_left">
+                    {% include "shop/img.html" %}
+                </div>
+                <div class="spgm_right">
+                    <div class="spxxfl">商品编号：{{ product.id }}</div>
+                    <div class="spxxfl">会员价：<span class="hou16">￥{{ product.price }}</span></div>
+                    <input type="hidden" id="size" value="${product.size}"/>
+                    <input type="hidden" id="selectSize"/>
+
+                    <div class="spxxfl">购买数量： <input type="text" id="amount" value="1" size="2"
+                                                     class="z999 bk"/>（库存{{ product.stock }}件）
+                    </div>
+                    <div class="spdg">
+                        <div class="float_left" style="padding:5px;">
+                            <a href="javascript:addProduct('{{ product.id }}')"><img src="/static/images/jrgwc.jpg"></a>
+                            <a href="javascript:buynow('{{ product.id }}')"><img src="/static/images/ljgm.jpg"></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="spjs">
+                <div class="navbg"><a href="#">商品介绍 </a></div>
+            </div>
+            <div class="spjslr">
+                <p style="font-size:14px; display:block;">   {{ product.desc | safe }}  </p>
+            </div>
+            <div class="float_left" style=" height:auto; width:738px; padding:15px 0 0 0;">
+                <div class="spjs">
+                    <div class="navbg"><a href="#">评价详情</a></div>
+                    <div class="pjsm"></div>
+                </div>
+
+                {% for reviews in cms %}
+                    <div class="pj">
+                        <div class="pj_lr">
+                            <div class="pj_lr_left">{{ reviews.text }}<br/>
+                                <span class="z666">{{ reviews.publish_time  | date }}</span></div>
+                            <div class="pj_lr_right">{{ reviews.name.username }}</div>
+                        </div>
+                    </div>
+                {% endfor %}
+
+                <br>
+                {% if code == 200 %}
+                    <div class="sxfy">
+                        <form action="/shop/pj/" name="pageForm" method="post">
+                            {% csrf_token %}
+                            <input type="hidden" name="id" value="{{ product.id }}">
+                            <textarea name="pj" rows="5" cols="100"></textarea>
+                            <input id="name" type="hidden" name="uid" value="{{ user.id }}">
+                            <input type="submit" value="提交评论">
+                        </form>
+                    </div>
+
+                {% endif %}
+            </div>
+        </div>
+    </div>
+</div>
+&nbsp;&nbsp;
+<!-- top5-->
+<div style="width:960px; height:auto; margin:10px auto 0 auto;">
+    {% include "shop/foot.html" %}
+</div>
+</body>
+</html>

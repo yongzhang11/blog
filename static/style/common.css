@@ -1,0 +1,42 @@
+﻿@charset "utf-8"; 
+/* CSS Document  12-2-3*/
+body, div, dl, dt, dd, ul, ol, li, h1, h2, h3, h4, h5, h6, form, fieldset, legend, input, textarea, p, blockquote, th, td { margin : 0; padding : 0; } 
+body { padding: 0px; margin: 0px; border: 0px; font-family:Arial, "宋体" ; word-spacing: normal; font-size: 12px; text-transform: none; line-height: normal; text-align: center; color: #333; background:url(../images/topbg.gif) repeat-x;}
+div { text-align: left; }
+img, form { margin: 0px; padding: 0px; border: 0px; vertical-align: middle; }
+input { vertical-align: middle; }
+ul { list-style-type: none; margin: 0px; padding: 0px; }
+ul,ol,li{list-style-type:none;}
+li{overflow:hidden;}
+em{font-style:normal;}
+select,input,img,select{vertical-align:middle;}
+
+a { color: #333; text-decoration: none; font-family:Arial, "宋体" ; }
+a:hover { color: #FF4E00; }
+
+.lan:link,.lan:visited{ color:#0066FF;}
+.lan:hover{ text-decoration:underline;}
+
+.link1:link,.link1:visited{ color:#0066FF; font-size:12px; font-weight:normal;}
+.link1:hover{ color:#FF4E00; text-decoration:underline;}
+
+.link2:link,.link2:visited{font-size:14px; font-weight:bold; color:#CC0000;}
+.link2:hover{ color:#FF4E00; text-decoration:underline;}
+
+.link3:link,.link3:visited{font-size:12px; font-weight:bold; color:#FF6600;}
+.link3:hover{ color:#FF4E00; text-decoration:underline;}
+
+.float_left{ float:left;}
+.float_right{ float:right;}
+
+.z333{ color:#333333;}
+.z444{ color:#444444;}
+.z666{ color:#666666;}
+.z999{ color:#999999;}
+.zccc{ color:#cccccc;}
+.zfff{ color:#ffffff;}
+.zbold{font-weight:bold;}
+.zff33{color:#FF3300;}
+.bk{border:1px solid #999; background:#FFFFFF; padding:2px;}
+.bgc{background:#f2f2f2;}
+.zffoo{ font-weight:bold; font-family:Arial, Helvetica, sans-serif; color:#FF0000;}

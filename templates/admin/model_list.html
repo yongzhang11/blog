@@ -1,0 +1,16 @@
+{% extends "admin/change_list.html" %}
+{% block object-tools-items %}
+<form class="form-inline" enctype="multipart/form-data" method="post" action="add/">
+ {% csrf_token %}
+ <br>
+<div class="form-group">
+    <label>上传图片：</label>
+    <input name="title" class="form-control" placeholder="图片标题" type="text"  size="25">
+    <input type="file" name="path" id="inputfile" >  
+<button class="btn btn-primary" type="submit">提交</button>
+</div>
+</br>
+</form>       
+{{ super }}
+{% endblock %}
+

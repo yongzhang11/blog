@@ -1,0 +1,62 @@
+﻿@charset "utf-8";
+/* CSS Document  12-2-12*/
+
+
+/*预定 左*/
+.yd_left{float:left; width:200px; height:auto;  padding:5px 0 0 10px; background:url(../images/leftbg1.jpg) no-repeat; }
+.yd_left .ckbt{float:left; width:180px; height:35px; color:#FFFFFF; font-family:'微软雅黑'; font-size:14px; }
+.yd_left .xzlr{float:left; width:200px; height:auto;}
+.yd_left .xzlr .xzlr_1{float:left; width:200px; height:30px; }
+.yd_left_1{float:left; width:210px; height:10px; background:url(../images/scbg.gif) no-repeat  0px -400px;}
+
+.yd_right{float:left; width:718px; padding:10px;  border-bottom: dashed #e2e2e2 1px;}
+.yd_right_1{float:left; width:185px; height:115px; }
+.yd_right_1 img{ padding:1px; border:1px solid #CCCCCC;}
+.yd_right_lr{float:left; width:738px; height:auto; margin:0 0 10px 0; padding:0 0 10px 0; border:1px #e2e2e2 solid; background:url(../images/btbg.gif) no-repeat  ;}
+.yd_right_2{float:left; width:450px; height:115px;  }
+.yd_right_2 ul{float:left; width:450px; height:115px;}
+.yd_right_2 ul li{float:left; line-height:24px; width:450px;}
+
+.yd_right_3{float:left; width:530px; height:115px; }
+.yd_right_3 ul{float:left; width:530px; height:115px;}
+.yd_right_3 ul li{float:left; line-height:24px; width:530px;}
+
+.splb{float:left; width:738px; height:auto;  border:1px #e2e2e2 solid; margin:0px 0px 10px 0px; padding:10px 0 0 0; }
+/*缩小范围查询 左*/
+.wfss{float:left; width:208px; height: auto; border:1px #dddddd solid; padding:0 0 10px 0; margin:0 0px 10px 0;}
+/*搜索酒店*/
+.ssjd{float:left; width:180px; height:109px; padding:5px 10px 10px 10px; margin:0 0 10px 0; background:url(../images/leftbg.jpg) no-repeat;}
+.ssjd_1{float:left; width:180px; height:22px; color:#990000; font-size:14px; font-family:'微软雅黑';}
+
+.ssjd_2{ float:left; width:180px; height:auto;}
+.ssjd_2 ul{float:left; width:180px; height:auto;}
+.ssjd_2 ul li{ float:left; width:60px; line-height:20px;}
+.ssjd_2 ul li a{ float:left; padding:1px; color:#0066CC;}
+.ssjd_2 ul li a:hover{ background:#4598D2; color:#fff;}
+
+/*门票预定*/
+.mpyu{ float:left; width:220px; height:auto; margin:0 8px; }
+.mpyu a{color:#0066FF; line-height:22px;}
+.mpyu a:hover{color:#FF6600; text-decoration:underline;}
+.mpyu_wz_1{text-decoration:line-through; padding:0 10px 0 0;}
+.mpyu_wz_2{color:#FF6600; font-weight:bold; height:22px; text-align:right;}
+
+/*线路预定*/
+.xl_yd{float:left; height:22px; width:220px; background:#F1F1F1; padding:6px 0 0 0; color:#666666;}
+.xl_yd_1{float:left; width:475px; height:165px; padding:0 0 0 10px; }
+.xl_yd_1 ul{ float:left; width:475px; height:165px;}
+.xl_yd_1 ul li{float:left; width:475px; line-height:26px;}
+.xl_yd_1 ul li a{ float:left; color:#0066FF; }
+.xl_yd_1 ul li a:hover{ color:#FF9900;}
+.xl_yd_1 ul li span{ line-height:26px;  color:#FF6600; font-weight:bold; text-align:right;}
+.xl_ydfff{float:left; height:22px; width:220px; padding:5px 0 0 0; color:#666666;}
+
+.p5{ padding:2px 0 0 5px;}
+
+/*酒店预定*/
+.jd_yd{float:left; width:738px; height:auto; margin:0 0 5px 0; padding:0 0 5px 0; border-top:1px #e2e2e2 solid; border-left:1px #e2e2e2 solid; border-right:1px #e2e2e2 solid; background:url(../images/btbg.gif) no-repeat  ;}
+.fangxing{float:left; width:715px; padding: 10px  0 0 0;  }
+.fangxingbk_1{border-bottom:1px solid #EEEEEE; border-right:1px solid #ffffff; font-weight:bold;}
+.fangxingbk_2{border-bottom:1px solid #EEEEEE;}
+
+

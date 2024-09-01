@@ -1,0 +1,82 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>博客之家</title>
+    <meta name="keywords" content="博客之家"/>
+    <meta name="description" content="博客之家"/>
+    <link href="/static/css/base.css" rel="stylesheet">
+    {% block custom_css %}{% endblock %}
+{#     # 在模块定义块#}
+    <!--[if lt IE 9]>
+<script src="js/modernizr.js"></script>
+<![endif]-->
+    <script type="text/javascript" src="/static/js/jquery.min.js"></script>
+</head>
+<body>
+<div class="topnav">
+    <a href="/" target="_blank">博客之家</a>――作品来自张勇     {% if request.user.is_authenticated %}
+    <a  target="_blank">欢迎您，{{ request.user.username }}</a>{% endif %}
+</div>
+<div id="wrapper">
+    <header>
+        <div class="headtop"></div>
+        <div class="contenttop">
+            <div class="logo f_l">博客之家</div>
+            <div class="search f_r">
+                <form action="/search/" method="post" name="searchform" id="searchform">
+                    <input name="keys" id="keyboard" class="input_text" value="请输入关键字"
+                           style="color: rgb(153, 153, 153);"
+                           onfocus="if(value=='请输入关键字'){this.style.color='#000';value=''}"
+                           onblur="if(value==''){this.style.color='#999';value='请输入关键字'}" type="text">
+                    {% csrf_token %}
+                    <input name="Submit" class="input_submit" value="搜索" type="submit">
+                </form>
+            </div>
+            <div class="blank"></div>
+            <nav>
+                <div class="navigation">
+                    <ul class="menu">
+                        <li><a href="/">网站首页</a></li>
+						<li><a href="/albums">相册</a></li>
+                        {% if request.user.is_authenticated %}
+                            <li><a href="/message">留言</a></li>
+                            <li><a href="/tj/">统计</a></li>
+							<li><a href="/alist">全部文章</a></li>
+		                    <li><a href="/shop/">商城</a></li>
+                            <li><a href="/logout/">注销</a></li>
+                        {% else %}
+                            <li><a href="/login/">登陆</a></li>
+                            <li><a href="/reg/">注册</a></li>
+                        {% endif %}
+                    </ul>
+                </div>
+            </nav>
+            <SCRIPT type=text/javascript>
+                // Navigation Menu
+                $(function () {
+                    $(".menu ul").css({display: "none"}); // Opera Fix
+                    $(".menu li").hover(function () {
+                        $(this).find('ul:first').css({visibility: "visible", display: "none"}).slideDown("normal");
+                    }, function () {
+                        $(this).find('ul:first').css({visibility: "hidden"});
+                    });
+                });
+            </SCRIPT>
+        </div>
+    </header>
+    {% block content %}{% endblock %}
+    <footer>
+        <div class="footer">
+            <div class="f_l">
+                <p>All Rights Reserved 版权所有：<a href="/">博客之家</a> 备案号：豫ICP备081217105号</p>
+            </div>
+            <div class="f_r textr">
+                <p>Design by KJF</p>
+            </div>
+        </div>
+    </footer>
+</div>
+</body>
+</html>
+ 

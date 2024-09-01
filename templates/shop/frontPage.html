@@ -1,0 +1,44 @@
+<script type="text/javascript">
+$(function(){
+	var currentPage=$("#currentPage").val()
+	var totalPage=$("#totalPage").val();
+	if(parseInt(currentPage)<=1){
+		$("#upPage").attr("class","prev-disabled");
+		$("#upPage").attr("href","javascript:void(0)");
+	}
+	if(parseInt(currentPage)>=parseInt(totalPage)){
+		$("#downPage").attr("class","prev-disabled");
+		$("#downPage").attr("href","javascript:void(0)");
+	}
+});
+
+function goPage(){
+	var nextPage=$("#nextPage").val();
+	var totalPage=$("#totalPage").val();
+	var reg=/^([1-9]+[0-9]*)$/;
+	if(!reg.exec(nextPage)){
+		alert("请正确输入页数");
+		$("#nextPage").val(1);
+		return;
+	}else {
+	if(nextPage==''||parseInt(nextPage)==0){
+		nextPage=1;
+	}else if(parseInt(nextPage)>parseInt(totalPage)){
+		nextPage=totalPage;
+	}
+	}
+	page(nextPage);
+}
+
+</script>
+<input id="currentPage" type="hidden" value="${currentPage}">
+<input id="totalPage" type="hidden" value="${pageCount}">
+
+<div class="pagin fr">
+	<a href="javascript:page(1)" class="next">首页<b></b></a>
+         <a href="javascript:page('${currentPage-1}')" id="upPage" class="next">上一页<b></b></a>
+          	<input type="text"  id="nextPage"  maxlength="7" value="${currentPage}"  style=" float:left; width:20px; height:20px; padding:5px 0 0 5px;  margin:0 5px;"/>
+			<a href="javascript:goPage()" class="next">go<b></b>
+			<a href="javascript:page('${currentPage+1}')" id="downPage" class="next">下一页<b></b></a>
+              <a href="javascript:page('${pageCount}')" class="next"> 尾页<b></b></a>
+              <span class="prev-disabled">共${pageCount}页</span></div>

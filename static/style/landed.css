@@ -1,0 +1,34 @@
+﻿@charset "utf-8";
+/* CSS Document  12-2-15*/
+
+/* 登录和注册 */
+.log{width:960px; height:auto; margin:0 auto; }
+.hkuang{float:left; border:#E62601 7px solid; padding:10px; width:926px; height:auto; margin:0 0 10px 0; }
+.land{float:left; width:926px; line-height:35px; border-bottom:#D6D6D6 1px dashed; font-family:"微软雅黑"; font-size:22px; color:#E62601; padding:0 0 5px 0;}
+.land_1{float:left; width:400px; height:210px; padding:50px 0 0 60px;}
+.land_1_1{float:left; width:400px; height:55px;}
+.land_1_1 span{font-size:14px;}
+.land_1_2{float:left; width:345px; height:40px; padding:0 0 0 55px;}
+.land_1_3{float:left; width:500px; height:50px;}
+
+
+.land_2{ float:left; width:220px; height:230px; padding:20px 10px 0 160px; background:url(../images/lonbg.gif) no-repeat 120px 10px;}
+.zc{ float:left; width:200px; height:50px; text-align:center; padding:20px 0 0 0;}
+.zc_1{float:left; width:200px;}
+.zc_1 ul{float:left; width:200px;}
+.zc_1 ul li{float:left; width:200px; line-height:22px; font-weight:bold;}
+.zc_2{float:left; width:706px; height:auto;  padding:30px 0 0 220px;}
+.zc_2_1{float:left; width:500px; height:auto; }
+.zc_2_2{float:left; width:100px; font-size:14px; text-align:right; padding:5px 0 0 0;}
+.zc_2_2 span{ color:#FF0000; font-size:14px; padding: 0 5px;}
+.kuang{height:20px; padding:5px 0 0 5px; border:1px #bbbbbb solid;}
+
+/* 出错页面 */
+
+.ccym{float:left; width:700px; height:180px; padding:0 0 0 130px; margin:0 0 10px 0;}
+.ccym_1{float:left; width:150px; height:130px; padding:20px 0 0 0; text-align:center;}
+.ccym_2{float:left; width:500px; height:130px; padding:20px 0 0 0; }
+.ccym_2_1{float:left; width:500px; line-height:35px; padding:20px 0 10px 0; font-size:22px; font-family:"微软雅黑"; color:#FF0000;}
+.ccym_2_2{float:left; width:500px; line-height:25px; font-size:14px; }
+.ccym_2_2 a{ font-size:14px; color:#0066FF;}
+.ccym_2_2 a:hover{ color:#FF0000;}

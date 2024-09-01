@@ -1,0 +1,11 @@
+
+<div style=" float:left; width:735px; height:42px;"> 
+<div class="wzbt">推荐<span>专区</span></div> </div>
+   <span id="zxsj">
+{% for a in aa %}
+<div class="shangpin_1"><a href="productLook?id={{a.id}}">
+<img src="/media/{{a.image}}" width='120px' height='100px'></a><br/>
+<a href="productLook?id={{a.id}}">{{a.title}}</a><br/>
+<br/><span >会员价￥{{a.price}} </span></div>
+{%  endfor %}
+   </span> 

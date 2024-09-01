@@ -1,0 +1,203 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>提交订单</title>
+<link href="/static/style/common.css" rel="stylesheet" type="text/css" />
+<link href="/static/style/home.css" rel="stylesheet" type="text/css" />
+<link href="/static/style/landed.css" rel="stylesheet" type="text/css" />
+<link href="/static/style/gwc.css" rel="stylesheet" type="text/css" />
+</head>
+<script type="text/javascript" src="/static/js/jquery-1.4.2.min.js"></script>
+<script type="text/javascript">
+$(function(){
+	if('{{receiver}'==''||'{{receiver}'=='null'){
+		 $("#receiverUpdate").attr("style","background:#EFF5F8;display:block");
+	}else{
+			$("#receiverLook").attr("style","background:#EFF5F8;display:block");
+	}
+	
+});
+function  lookOrUpdate(){
+ window.location.href="/shop/usercenter";
+}
+
+	function saveReceiver(){
+		var name=$("#name").val();
+		var address=$("#address").val();
+		var phone=$("#phone").val();
+		var post=$("#post").val();
+		if($.trim(name)==''||$.trim(name)=='null'){
+			alert("请输入姓名！");
+			return;
+		}
+		if($.trim(address)==''||$.trim(address)=='null'){
+			alert("请输入地址！");
+			return;
+		}
+		if($.trim(phone)==''||$.trim(phone)=='null'){
+			alert("请输入电话！");
+			return;
+		}
+
+		document.reForm.submit();
+	}
+	
+	function saveOrder(id){
+		if(id==''){
+			alert("请填写信息！");
+			return;
+		}
+
+		{% if buynow %} 
+    window.location.href="/shop/saveOrder/?id="+id+'&pid={{p.id}}&num={{num}}&total={{totalPrice}}';
+    {% else %} 
+    window.location.href="/shop/saveOrder/?id="+id;
+    {% endif %} 
+    
+	}
+</script>
+<body>
+<!--网站顶部-->
+<div class="webtop">
+  {% include "shop/top.html" %}
+</div>
+
+<!--搜索和导航-->
+<div class="sounav">
+  {% include "shop/search.html" %}
+</div>
+
+<!-- top5-->
+<div class="log">
+<div class="hkuang">
+  <div class="land" style="height:80px;">
+  	<div class="float_left">填写信息</div>
+    <div class="gwc_1">
+    </div>
+  </div>
+  <div class="gwc_2">
+    <div class="gwc_4" id="receiverLook" style="display: none;">
+    	<div class="gwc_4_1">信息&nbsp;&nbsp;<a href="javascript:lookOrUpdate('update')" class="link1">[修改]</a></div>
+        <div class="gwc_4_2"><div class="gwc_4_2_1">姓　　名：</div><div class=" float_left">{{receiver.first_name}}</div></div>
+        <div class="gwc_4_2"><div class="gwc_4_2_1">地　　址：</div><div class=" float_left">{{receiver.address}}</div></div>
+        <div class="gwc_4_2"><div class="gwc_4_2_1">手机号码：</div><div class=" float_left">{{receiver.mobile}}</div></div>
+        <div class="gwc_4_2"><div class="gwc_4_2_1">邮　　箱：</div><div class=" float_left">{{receiver.email}}</div></div>
+    </div>
+
+    <form action="saveReceiver.action" name="reForm" method="post">
+	<input  name="receiver.id" type="hidden"  value="{{receiver.id}">
+    <div class="gwc_4" id="receiverUpdate" style="background:#EFF5F8;display: none;">
+    	<div class="gwc_4_1">收货人信息&nbsp;&nbsp;<a href="javascript:lookOrUpdate()" class="link1">[关闭]</a></div>
+        <div class="gwc_4_2"><div class="gwc_4_2_1">收货人姓名：</div><div class=" float_left"><input id="name" name="receiver.name" type="text"  value="{{receiver.name}" size="20" class="z666"/>
+        </div></div>
+        <div class="gwc_4_2"><div class="gwc_4_2_1">地　　址：</div><div class=" float_left"><input id="address" name="receiver.address" type="text"   value="{{receiver.address }" size="60" class="z666"/>
+        </div></div>
+        <div class="gwc_4_2"><div class="gwc_4_2_1">手机号码：</div><div class=" float_left"><input id="phone" name="receiver.phone" type="text" class="z666"   value="{{receiver.phone}" size="11"/>
+       </div></div>
+        <div class="gwc_4_2" style="display: none;"><div class="gwc_4_2_1">邮　　编：</div><div class=" float_left"><input id="post" name="receiver.post" type="text" class="z666" value="{{receiver.post}" size="10"/></div></div>
+        <div class="gwc_4_2"><div class="gwc_4_2_1">&nbsp;&nbsp;</div><div class=" float_left"><input type="button" onclick="saveReceiver();" value="保存收货人信息" /></div></div>
+    </div>
+{#	</form>  <form action="saveReceiver.action" name="reForm" method="post">#}
+{#	<input  name="receiver.id" type="hidden"  value="{{receiver.id}">#}
+{#    <div class="gwc_4" id="receiverUpdate" style="background:#EFF5F8;display: none;">#}
+{#    	<div class="gwc_4_1">收货人信息&nbsp;&nbsp;<a href="javascript:lookOrUpdate()" class="link1">[关闭]</a></div>#}
+{#        <div class="gwc_4_2"><div class="gwc_4_2_1">收货人姓名：</div><div class=" float_left"><input id="name" name="receiver.name" type="text"  value="{{receiver.name}" size="20" class="z666"/>#}
+{#        </div></div>#}
+{#        <div class="gwc_4_2"><div class="gwc_4_2_1">地　　址：</div><div class=" float_left"><input id="address" name="receiver.address" type="text"   value="{{receiver.address }" size="60" class="z666"/>#}
+{#        </div></div>#}
+{#        <div class="gwc_4_2"><div class="gwc_4_2_1">手机号码：</div><div class=" float_left"><input id="phone" name="receiver.phone" type="text" class="z666"   value="{{receiver.phone}" size="11"/>#}
+{#       </div></div>#}
+{#        <div class="gwc_4_2" style="display: none;"><div class="gwc_4_2_1">邮　　编：</div><div class=" float_left"><input id="post" name="receiver.post" type="text" class="z666" value="{{receiver.post}" size="10"/></div></div>#}
+{#        <div class="gwc_4_2"><div class="gwc_4_2_1">&nbsp;&nbsp;</div><div class=" float_left"><input type="button" onclick="saveReceiver();" value="保存收货人信息" /></div></div>#}
+{#    </div>#}
+{#	</form>#}
+
+    <div class="gwc_4">
+    	<div class="gwc_4_1">购物清单&nbsp;&nbsp;<a href="/shop/shopcar/" class="link1">[返回修改购物车]</a></div>
+        <table width="910" border="0" cellpadding="0" cellspacing="1" bgcolor="#E3E3E3">
+      <tr>
+        <td width="100" height="25" align="center" bgcolor="#FFFFFF">编号</td>
+        <td width="508" align="center" bgcolor="#FFFFFF">名称</td>
+        <td width="100" align="center" bgcolor="#FFFFFF">价格 </td>
+        <td width="95" align="center" bgcolor="#FFFFFF">数量</td>
+      </tr>
+      {% if buynow %}
+
+      <tr>
+        <td height="55" align="center" bgcolor="#FFFFFF">{{p.id}}</td>
+        <td align="center" bgcolor="#FFFFFF">
+          <table width="95%" border="0" align="center" cellpadding="0" cellspacing="0">
+            <tr>
+              <td width="16%" align="center">
+              <img src="/media/{{p.image}}" width="50" height="50" />
+              </td>
+              <td width="84%" align="left"><a href="#" class="link1">{{p.title }}</a> <br />
+            </tr>
+          </table>
+      </td>
+        <td align="center" bgcolor="#FFFFFF"><span class="zffoo">￥{{p.price }}</span></td>
+       
+        <td align="center" bgcolor="#FFFFFF">
+          <table width="100%" border="0" cellspacing="0" cellpadding="0">
+          <tr>
+            <td align="center">{{num}}</td>
+          </tr>
+        </table>
+      </td>
+      </tr>
+
+      {% else %}
+
+      {% for  car in cart %}
+      <tr>
+        <td height="55" align="center" bgcolor="#FFFFFF">{{car.0.id}}</td>
+        <td align="center" bgcolor="#FFFFFF">
+          <table width="95%" border="0" align="center" cellpadding="0" cellspacing="0">
+            <tr>
+              <td width="16%" align="center">
+              <img src="/media/{{car.0.image}}" width="50" height="50" />
+              </td>
+              <td width="84%" align="left"><a href="#" class="link1">{{car.0.title }}</a> <br />
+            </tr>
+          </table>
+      </td>
+        <td align="center" bgcolor="#FFFFFF"><span class="zffoo">￥{{car.0.price }}</span></td>
+       
+        <td align="center" bgcolor="#FFFFFF">
+          <table width="100%" border="0" cellspacing="0" cellpadding="0">
+          <tr>
+            <td align="center">{{car.1 }}</td>
+          </tr>
+        </table>
+      </td>
+      </tr>
+  {%  endfor %}
+
+  {% endif %}
+    </table>
+    </div>
+    
+    
+    <div class="gwc_4">
+    	<!-- <div class="gwc_4_1">结算信息</div> -->
+ 
+      <!--   <div class="gwc_4_2"><div class="gwc_4_2_1">运　　费：</div><div class=" float_left">0元 </div></div> -->
+        <div class="gwc_4_1">应付总额：<span class="zff33">￥{{totalPrice}}</span> </div>
+        <div class="gwc_4_1">
+          <a href="javascript:saveOrder('{{receiver.id}}')">
+            <img src="/static/images/tjbd.jpg">
+          </a>
+        </div>
+    </div>
+    
+  </div>
+</div>
+</div>
+
+<div style="width:960px; height:auto; margin:10px auto 0 auto;">
+{% include "shop/foot.html" %} 
+</div>
+
+</body>
+</html>

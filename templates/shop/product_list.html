@@ -1,0 +1,84 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <title> 商品购物网</title>
+</head>
+<link href="/static/style/common.css" rel="stylesheet" type="text/css"/>
+<link href="/static/style/home.css" rel="stylesheet" type="text/css"/>
+<link href="/static/style/search.css" rel="stylesheet" type="text/css"/>
+<body>
+<script type="text/javascript" src="/static/js/jquery-1.4.2.min.js"></script>
+<script type="text/javascript">
+    function page(currentPage) {
+        $("#page").val(currentPage);
+        document.pageForm.submit();
+    }
+
+    function checkvalue() {
+        var minPrice = $("#minPrice").val();
+        var maxPrice = $("#maxPrice").val();
+        var reg = /^[1-9]d*.d*|0.d*[1-9]d*$/;
+        if (minPrice != '') {
+            if (!reg.test(minPrice)) {
+                alert("价格不规范！");
+                return false;
+            }
+        }
+        if (maxPrice != '') {
+            if (!reg.test(maxPrice)) {
+                alert("价格不规范！");
+                return false;
+            }
+        }
+        $("#oldminPrice").val(minPrice);
+        $("#oldmaxPrice").val(maxPrice);
+        page('${currentPage}');
+    }
+</script>
+
+<!--网站顶部-->
+<div class="webtop">
+    {% include "shop/top.html" %}
+</div>
+
+<!--搜索和导航-->
+<div class="sounav">
+    {% include "shop/search.html" %}
+</div>
+
+<div style="width:960px; height:auto; margin:0 auto 10px auto;  ">
+    <div class="base">
+        <div class="float_left webleft">
+
+        </div>
+        <div class="syfl">
+            <div class="sywz"><a href="#">所有产品</a></div>
+
+        </div>
+
+        <div class="splb">
+            <!-- <div class="spps"> -->
+            <!-- 价格：<input type="text" style="width: 60px" id="minPrice" name="minPrice" value="100">至<input type="text" id="maxPrice"  style="width: 60px"  name="maxPrice" value="500">&nbsp;&nbsp;<input type="button" onclick="checkvalue()" value="确定"> -->
+            <!-- </div>  -->
+            <div class="sppsbg"></div>
+
+            {% for it in goods %}
+                <div class="shangpin_2">
+                    <a href="/shop/productLook?id={{ it.id }}"><img src="/media/{{ it.image }}" width="160px"
+                                                                    height="160px"/></a><br/>
+                    <a href="/shop/productLook?id={{ it.id }}">{{ it.title }}</a><br/>
+                    <span>会员价￥{{ it.price }}</span>
+                </div>
+            {% endfor %}
+
+        </div>
+    </div>
+</div>
+
+<!-- top5-->
+<div style="width:960px; height:auto; margin:10px auto 0 auto;">
+    {% include "shop/foot.html" %}
+</div>
+</body>
+</html>

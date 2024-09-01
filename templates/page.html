@@ -1,0 +1,151 @@
+{% extends 'base.html' %}
+{% block custom_css %}
+    <link href="/static/css/main.css" rel="stylesheet">{% endblock %}
+{% block content %}
+    <div class="container">
+        <div class="con_content">
+            <div class="about_box">
+                <h2 class="nh1"><span>您现在的位置是：<a href="/" target="_blank">网站首页</a>>><a href="#" target="_blank">信息浏览</a></span><b>博客文章</b>
+                </h2>
+                <div class="f_box">
+                    <p class="a_title">{{ article.title }}</p>
+                    <p class="p_title"></p>
+                    <p class="box_p">
+                        <span>发布时间：{{ article.publish_time }}</span><span>作者：张勇</span><span>点击：{{ article.browse_count }}</span>
+                    </p>
+                </div>
+                <ul class="about_content">
+                    <p> {{ article.text | safe }}</p>
+                </ul>
+                <div class="post_comment">
+                    <h3 id="post_comment">发表评论</h3>
+                    <div class="add_comm">
+                        <textarea name="txtBody" id="commentContent" cols="60" rows="5" class="ipt-txt"
+                                  placeholder="有您参与评论更精彩！" style=""></textarea>
+                        <div class="comm_login" id="commentLoginPanel">
+                            <span id="info" style="color:red;"></span>
+                            <span class="p1">用户昵称</span>
+                            <input type="text" placeholder="昵称" class="inpt rm_name" id="entered_UsernameInput">
+                            {% csrf_token %}
+                            <input type="button" value="发表" onclick="post_comm();" class="rm_smt" id="btn_loginbtn">
+                        </div>
+                    </div>
+                    <h3>全部评论</h3>
+                    <div id="divcommentlist">
+                        <ul class="list" id="ulcommentlist">
+                            {% for cm in cms %}
+                                <li class="entry">
+                                    <div class="re_info">{{ cm.name }} {{ cm.publish_time }}</div>
+                                    &emsp;&emsp;{{ cm.text }}</li>
+                            {% endfor %}
+                    </div>
+
+                </div>
+                <!-- container代码 结束 -->
+            </div>
+        </div>
+        <div class="blank"></div>
+    </div>
+    <!-- container代码 结束 -->
+    <style type="text/css">.post_comment h3 {
+        position: relative;
+        margin: 10px 0 0 0;
+        padding: 10px 0;
+        font-size: 14px;
+        font-weight: 700;
+        color: #333333;
+        border-bottom: 3px #333333 solid
+    }
+
+    .post_comment {
+        font-size: 14px;
+        font-family: 'Microsoft Yahei';
+    }
+
+    .add_comm {
+        position: relative;
+        height: 120px;
+        border: 1px #ccc solid;
+        border-top-width: 0;
+        background: #fafafa
+    }
+
+    .add_comm textarea {
+        position: absolute;
+        left: 15px;
+        top: 10px;
+        height: 120px;
+        border: 0;
+        resize: none;
+        outline: 0;
+        font-size: 14px;
+        line-height: 22px;
+        background: 0 0;
+    }
+
+    .comm_login {
+        position: absolute;
+        left: 610px;
+        bottom: 10px;
+        width: 680px;
+        padding: 0 10px
+    }
+
+    .comm_login input.inpt {
+        width: 140px;
+        height: 27px;
+        line-height: 27px;
+        padding: 0 5px;
+        border: 1px #e9e9e9 solid;
+        border-bottom: 1px #ccc solid;
+        outline: 0
+    }
+
+    .comm_login input.rm_smt {
+        width: 51px;
+        height: 27px;
+        border: 0;
+        color: #fff;
+        background: #056ebb;
+        cursor: pointer
+    }
+
+    .comm_login span.p1 {
+        padding: 0 5px 0 0
+    }
+
+    .entry {
+        width: 728px;
+        padding-bottom: 5px;
+        border-top: 1px #fff solid;
+        border-bottom: 1px #ddd dotted;
+    }
+
+    .re_info {
+        padding: 10px 0 0 0;
+        font-size: 12px;
+        color: #888
+    }
+
+    #info {
+        position: absolute;
+        left: -160px;
+    }
+    </style>
+    <script type="text/javascript">function post_comm() {
+        var text = $("#commentContent").val();
+        var name = $("#entered_UsernameInput").val();
+        var csrfmiddlewaretoken = $("input[name='csrfmiddlewaretoken']").val();
+        $.post("/comment/", {
+            name: name,
+            comment: text,
+            csrfmiddlewaretoken: csrfmiddlewaretoken,
+            a_id:{{ article.id }}
+        }, function (result) {
+            var obj = JSON.parse(result);
+            $("#info").html(obj.info);
+            $("#ulcommentlist").append('<li class="entry"> <div class="re_info">' + name + ' 2018-1-20</div> &emsp;&emsp;' + text + '</li>');
+        });
+    }
+    </script>
+{% endblock %}

@@ -1,0 +1,37 @@
+﻿@charset "utf-8";
+/* CSS Document  12-2-8*/
+/* 商品标题名称*/
+
+.spbtmc{float:left; width:738px; line-height:30px; padding:0 0 5px 0;  color:#000000; font-size:16px; font-weight:bold ; }
+.spbtmc span{ color:#FF0000;}
+/* 商品购买 */
+.spgm{float:left; width:738px; height:auto; margin:0 0 10px 0; padding:0 0 10px 0; }
+.spgm_left{float:left; width:310px; height:auto; margin:0 25px 0 0 ;}
+.spgm_left .datp{width:308px; height:288px; border:1px solid #E4E4E4; text-align:center; margin:0 0 10px 0; }
+.spgm_left .xiaotp{width:310px; height:55px; }
+.spgm_left .xiaotp img{ border:1px solid #E4E4E4; padding:2ssspx; background:#FFFFFF; margin-right:5px;}
+
+.spgm_right{float:left; width:403px; height:auto;}
+.spxxfl{float:left; width:380px; height:38px;}
+.spxxfldiv{float:right; width:400px; height:38px;}
+.spdg{ float:left;text-align:center; height:50px; padding: 0 0 0 0px;}
+.hou16{ font-size:16px; font-weight:bold; color:#FF0000;}
+.hou12{ font-size:12px; color:#FF0000;}
+
+.spjs{ float:left; width:728px; height:27px; padding:0 5px; border-bottom:2px solid #E62601;  }
+.spjs .wz{float:left; text-align:center; margin: 0 0 0 5px; width:85px; height:27px; background:url(../images/pxbg_1.jpg) no-repeat;}
+.spjs .wz a{text-align:center; font-size:14px; font-weight:bold; color:#C0060A;   width:85px; line-height:27px; }
+.spjs .wz a:hover{ float:left; color:#fff; background:url(../images/pxbg_2_1.jpg) no-repeat; width:85px; height:27px; }
+.spjs .navbg{ float:left; color:#fff; background:url(../images/pxbg_2_1.jpg) no-repeat; width:85px; height:27px; margin: 0 0 0 5px; }
+.spjs .navbg a{ float:left; text-align:center; line-height:27px; font-size:14px; font-weight:bold; width:85px; color:#fff;}
+
+.spjslr{float:left; width:718px; height:auto; padding:10px; margin:0 0 5px 0; border-bottom:1px dotted #CCCCCC; }
+.spjslr ul{float:left; width:718px; height:auto;  }
+.spjslr ul li{float:left; width:350px; line-height:22px;}
+.spjslr p{ line-height:24px; font-size:12px;}
+
+.pjsm{ float:right; padding:5px 0 0 10px; color:#FF6600; font-size:14px; font-weight:bold;}
+.pj{float:left; width:716px; height:auto; padding:5px 10px ; border:1px solid #F3E6C6; background:#FFFCF5; margin:5px 0 ;}
+.pj_lr{float:left; width:716px; height:auto; }
+.pj_lr .pj_lr_left{ float:left; color:#404040; line-height:22px; width:600px; }
+.pj_lr .pj_lr_right{ float:right; width:116px; line-height:22px; color:#0066FF; text-align:right;}

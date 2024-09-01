@@ -1,0 +1,67 @@
+﻿@charset "utf-8";
+/* CSS Document  12-2-5*/
+
+
+.base{ float:left; width:960px; height:auto;  padding:0px; }
+
+/*商品列表  左*/
+.left_spfl{ float:left; width:200px; height:auto; border:1px #D64C4C solid; padding:4px ; margin:0px 0px 10px 0; background:#FFFFFF;}
+.spfl_btwz{ width:190px; height:19px; background:url(../images/scbg.gif) no-repeat  0px -606px; padding:5px 0 0 10px;  font-weight:bold; color:#FFFFFF;}
+.rxsp_left{ float:left; width:208px; height:523px; border:1px #dddddd solid; margin:0 0px 10px 0;}
+
+/*所有分类*/
+.syfl{float:left; width:738px; height:25px;   border:1px #FED690 solid; margin:0px 0px 10px 0px; background:url(../images/sybg.gif) no-repeat  ;}
+.sywz{float:left; width:150px; height:18px; padding:7px 0 0 10px;}
+.sywz a{color:#FF0000;}
+.sywz a:hover{color:#FF9900;}
+.xfsp{float:right; width:140px; height:18px; padding:7px 10px 0 0px; color:#999; text-align:right;}
+.xfsp span{ font-weight:bold; color:#FF0000;}
+
+/*商品筛选*/
+.spsx{ float:left;  width:738px; height:auto; border:1px #FED690 solid; margin:0px 0px 10px 0px; padding:0 0 10px 0;}
+.spsx_1{ float:left;  width:688px; height:auto; border-bottom:1px #E7CDAE dashed; padding:10px 0 0 50px; }
+.spsx_1_1{ float:left; width:40px; font-weight:bold; padding:3px 0 0 0;}
+.spsx_1_2{ float:left; width:640px; height:auto;}
+.spsx_1_2 ul{float:left; width:640px; height:auto;}
+.spsx_1_2 ul li{ float:left; width:105px; line-height:18px;}
+.spsx_1_2 ul li a{ float:left; padding:1px; color:#0066CC;}
+.spsx_1_2 ul li a:hover{ background:#4598D2; color:#fff;}
+
+/*商品列表*/
+.splb{float:left; width:738px; height:auto;  border:1px #e2e2e2 solid; margin:0px 0px 10px 0px; padding:10px 0 0 0; }
+
+.spps{ float:left; width:728px; height:27px; padding:0 5px; border-bottom:2px solid #E62601; }
+.spps .wz{float:left; text-align:center; margin: 0 0 0 5px; width:85px; height:27px; background:url(../images/pxbg_1.jpg) no-repeat;}
+.spps .wz a{text-align:center; font-size:14px; font-weight:bold; color:#C0060A;   width:85px; line-height:27px; }
+.spps .wz a:hover{ float:left; color:#fff; background:url(../images/pxbg_2_1.jpg) no-repeat; width:85px; height:27px; }
+.spps .navbg{ float:left; color:#fff; background:url(../images/pxbg_2_1.jpg) no-repeat; width:85px; height:27px; }
+.spps .navbg a{ float:left; text-align:center; line-height:27px; font-size:14px; font-weight:bold; width:85px; color:#fff;}
+
+
+.sppsbg{ float:left; width:728px; height:32px; padding:0 5px; background:url(../images/pxbg.jpg); }
+
+
+
+/*上下分页*/
+.sxfy{  width:718px;  padding:20px 20px 5px 0px; }
+.pagin{ float:right;}
+.pagin a,.pagin span{float:left;height:20px;padding:3px 10px;border:1px solid #ccc;margin-left:2px;font-family:arial;line-height:20px;font-size:14px;overflow:hidden;-moz-border-radius:5px;-webkit-border-radius:5px; }
+.pagin .text,.pagin .current{border:none;padding:4px 11px;}
+.pagin a:link,.pagin a:visited{color:#005aa0;}
+.pagin a:hover,.pagin a:active{background:#005aa0;color:#fff;text-decoration:none;}
+.pagin .current,.pagin .current:link,.pagin .current:visited{color:#f60;font-weight:bold;}
+.pagin b{dispaly:block;position:absolute;top:9px;width:5px;height:9px;background-repeat:no-repeat;overflow:hidden;}
+.pagin .prev,.pagin .next,.pagin .prev-disabled,.pagin .next-disabled{position:relative;padding-top:5px;height:18px;line-height:18px;}
+.pagin .prev-disabled,.pagin .next-disabled{color:#ccc;cursor:default;}
+.pagin .prev,.pagin .prev-disabled{padding-left:12px;}
+.pagin .prev b{left:3px;background-position:-68px -608px;}
+.pagin .prev-disabled b{left:3px;background-position:-80px -608px;}
+.pagin .next,.pagin .next-disabled{padding-right:12px;}
+.pagin .next b{right:3px;background-position:-62px -608px;}
+.pagin .next-disabled b{right:3px;background-position:-74px -608px;}
+.pagin-m a,.pagin-m span{height:14px;line-height:14px;font-size:12px;}
+.pagin-m b{top:5px;}
+.pagin-m .prev,.pagin-m .next,.pagin-m .prev-disabled,.pagin-m .next-disabled{padding-top:3px;height:14px;line-height:14px;*line-height:16px;}
+
+/*网站左边*/
+.webleft{ float:left; width:210px; margin:0 10px 0 0;}

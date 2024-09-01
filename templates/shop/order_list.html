@@ -1,0 +1,126 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>我的订单</title>
+<link href="/static/style/common.css" rel="stylesheet" type="text/css" />
+<link href="/static/style/home.css" rel="stylesheet" type="text/css" />
+<link href="/static/style/landed.css" rel="stylesheet" type="text/css" />
+<link href="/static/style/gwc.css" rel="stylesheet" type="text/css" />
+<link href="/static/style/search.css" rel="stylesheet" type="text/css" />
+</head>
+<script type="text/javascript" src="/static/js/jquery-1.4.2.min.js"></script>
+<script type="text/javascript">
+	function page(currentPage){
+		$("#page").val(currentPage);
+		document.pageForm.submit();
+	}
+	
+	function deleteOrder(id){
+			var param={"id":id};
+				if(confirm("确定要删除？")){
+					$.get("/shop/deleteOrder/",param,function(data){
+						if(data["data"]=="success"){
+							alert("删除数据成功！");
+							window.location.href="/shop/order";
+							var currentPage=$("#currentPage").val();
+							page(currentPage);
+						}else{
+							alert("删除数据失败！");
+						}
+					});
+				}
+			}
+		function updatefukuang(id){
+				var ID=id; 
+				$.post("orderSuccess.action",ID,function(data){
+					if(data=="success"){
+						alert("操作成功！");
+						var currentPage=$("#currentPage").val();
+						page(currentPage);
+					}else{
+						alert("操作失败！");
+					}
+				});
+		}	
+		function updatefukuang(id){
+				$.post("orderSuccess2.action",{"ID":id},function(data){
+					if(data=="success"){
+						alert("操作成功！");
+						var currentPage=$("#currentPage").val();
+						page(currentPage);
+					}else{
+						alert("操作失败！");
+					}
+				});
+		}
+		function updateOrder(id){
+				var array={"receiverId":id,"orderPost":"sh"};
+				$.post("updateOrder.action",array,function(data){
+					if(data=="success"){
+						alert("操作成功！");
+						var currentPage=$("#currentPage").val();
+						page(currentPage);
+					}else{
+						alert("操作失败！");
+					}
+				});
+		}
+</script>
+<body>
+<!--网站顶部-->
+<div class="webtop">
+	{%  include "shop/top.html" %}
+</div>
+
+<!--搜索和导航-->
+<div class="sounav">
+	{%  include "shop/search.html" %}
+</div>
+
+<!-- top5-->
+<div class="log">
+<div class="hkuang">
+  <div class="gwc_2">
+    <div class="gwc_4">
+        <table width="910" border="0" cellpadding="0" cellspacing="1" bgcolor="#E3E3E3">
+      <tr>
+        <td width="69" height="25" align="center" bgcolor="#FFFFFF">编号</td>
+        <td width="442" align="center" bgcolor="#FFFFFF">名称</td>
+        <td width="94" align="center" bgcolor="#FFFFFF">价格 </td>
+        <td width="87" align="center" bgcolor="#FFFFFF">时间</td>
+ 
+           <td width="107" align="center" bgcolor="#FFFFFF">操作</td>
+      </tr>
+      {%  for order in orders %} 
+      <tr>
+        <td height="55" align="center" bgcolor="#FFFFFF">{{order.0}}</td>
+        <td align="center" bgcolor="#FFFFFF"><table width="95%" border="0" align="center" cellpadding="0" cellspacing="0">
+          <tr>
+            <td width="16%" align="center"><img src="/media/{{order.1.image}}" width="50" height="50" /></td>
+            <td width="84%" align="left"><a href="/shop/productLook?id={{order.1.id}}" class="link1">{{order.1.title}}</a></td>
+          </tr>
+        </table></td>
+        <td align="center" bgcolor="#FFFFFF"><span class="zffoo">￥{{order.2}}</span></td>
+<!--         <td align="center" bgcolor="#FFFFFF">{{order.amount}</td>
+          <td align="center" bgcolor="#FFFFFF">{{order.size}</td> -->
+        <td align="center" bgcolor="#FFFFFF">{{order.3 | date}}</td>
+         <td align="center" bgcolor="#FFFFFF">
+      
+         	  <input type="button" onclick="deleteOrder('{{order.0}}')" value="删除">
+         </td>
+      </tr>
+      {% endfor %}
+    </table>
+
+        </div>
+  </div>
+</div>
+</div>
+
+<div style="width:960px; height:auto; margin:10px auto 0 auto;">
+	{%  include "shop/foot.html" %}
+</div>
+
+</body>
+</html>

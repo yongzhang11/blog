@@ -1,0 +1,54 @@
+﻿@charset "utf-8";
+/* CSS Document  12-2-22*/
+
+
+/* 商品频道页面 */
+.ff{width:960px; height:290px;  margin:0 auto 10px auto; border:1px solid #E2E2E2;}
+.ff_1{float:left; width:960px; height:35px; background:url(../images/btbg.gif) no-repeat left bottom #ffffff;}
+.ff_2{float:left; width:940px; height:235px; padding:10px;}
+.ff_1_left{float:left; width:200px; height:235px; margin:0 15px 0 0;background:#F28300; }
+.ff_2_left{float:left; width:200px; height:235px; margin:0 15px 0 0;background:#4499EE; }
+.ff_3_left{float:left; width:200px; height:235px; margin:0 15px 0 0;background:#74A474; }
+.ff_4_left{float:left; width:200px; height:235px; margin:0 15px 0 0;background:#FF4A4A; }
+.ff_2_right{float:left; width:905px; height:235px;}
+
+/* 1F */
+.ffg_1{ float:left; width:100px; height:28px; padding:0 0 2px 0; background:url(../images/gaa_1.gif) repeat-x left bottom;}
+.ffg_1 a{float:left; width:90px; height:20px; padding:8px 0 0 10px; font-size:12px; color:#FFFFFF; }
+.ffg_1 a:hover{background:#957366; color:#FFFFFF;}
+
+/* 2F */
+.ffg_2{ float:left; width:100px; height:28px; padding:0 0 2px 0; background:url(../images/gaa_2.gif) repeat-x left bottom;}
+.ffg_2 a{float:left; width:90px; height:20px; padding:8px 0 0 10px; color:#FFFFFF; }
+.ffg_2 a:hover{background:#D57500; color:#FFFFFF;}
+
+/* 3F */
+.ffg_3{ float:left; width:100px; height:28px; padding:0 0 2px 0; background:url(../images/gaa_3.gif) repeat-x left bottom;}
+.ffg_3 a{float:left; width:90px; height:20px; padding:8px 0 0 10px; color:#FFFFFF; }
+.ffg_3 a:hover{background:#338FEC; color:#FFFFFF;}
+
+/* 4F */
+.ffg_4{ float:left; width:100px; height:28px; padding:0 0 2px 0; background:url(../images/gaa_4.gif) repeat-x left bottom;}
+.ffg_4 a{float:left; width:90px; height:20px; padding:8px 0 0 10px; color:#FFFFFF; }
+.ffg_4 a:hover{background:#699C69; color:#FFFFFF;}
+
+/* 4F */
+.ffg_5{ float:left; width:100px; height:28px; padding:0 0 2px 0; background:url(../images/gaa_5.gif) repeat-x left bottom;}
+.ffg_5 a{float:left; width:90px; height:20px; padding:8px 0 0 10px; color:#FFFFFF; }
+.ffg_5 a:hover{background:#FF2D2D; color:#FFFFFF;}
+
+
+.ffgmore{ float:left; width:190px; height:20px; text-align:right; padding:5px 10px 0 0;}
+.ffgmore a{ color:#FFFFFF;}
+.ffgmore a:hover{ color:#FF0000;}
+
+.fcpd{width:960px; height:615px;  margin:0 auto 10px auto; } 
+.qbspfl_1{ float:left; width:200px; height:594px;  padding:1px 4px 4px 4px; margin-right:10px;}
+
+.sp_banner{ float:left; width:740px; height:350px; margin:0 0 15px 0; background:#f3f3f3;}
+
+.spdt_1{float:left; width:738px; height:233px;  border:1px #e2e2e2 solid; background:url(../images/btbg.gif) no-repeat  ;}
+
+.fxfl_1{ float:left; padding:10px 0 0 0; color:#cccccc; font-size:14px;}
+.fxfl_1 a{ color:#666666; padding:0 5px; font-size:12px;}
+.fxfl_1 a:hover{ color:#FF0000;}

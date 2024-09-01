@@ -1,0 +1,35 @@
+{% extends 'base.html' %}
+{% block custom_css %}
+    <link href="/static/css/main.css" rel="stylesheet">
+{% endblock %}
+{% block content %}
+    <div class="container">
+        <div class="con_content">
+            <div class="about_box">
+                <h2 class="nh1"><span>您现在的位置是：<a href="/" target="_blank">网站首页</a> >> <a href="/alist" target="_blank">文章</a></span><b></b>
+                </h2>
+
+                <div class="dtxw box">
+
+                    {% for a in article_list %}
+                        <li>
+                            <div class="dttext f_l">
+                                <ul>
+                                    <h2><a href="/article/{{ a.id }}">{{ a.title }}</a></h2>
+                                    <p>{{ a.text |safe | slice:":50" }}....</p>
+                                    <span>{{ a.publish_time }}</span>
+                                </ul>
+                            </div>
+                            <div class="xwpic f_r"><a href="/"><img src="/media/{{ a.header_img }}"></a></div>
+                        </li>
+                    {% endfor %}
+
+
+                </div>
+
+
+            </div>
+        </div>
+
+        <!-- container代码 结束 -->
+{% endblock %}

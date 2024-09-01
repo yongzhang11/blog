@@ -1,0 +1,122 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>用户中心</title>
+<link href="/static/style/common.css" rel="stylesheet" type="text/css" />
+<link href="/static/style/home.css" rel="stylesheet" type="text/css" />
+<link href="/static/style/landed.css" rel="stylesheet" type="text/css" />
+<link href="/static/style/gwc.css" rel="stylesheet" type="text/css" />
+<link href="/static/style/search.css" rel="stylesheet" type="text/css" />
+</head>
+<script type="text/javascript" src="/static/js/jquery-1.4.2.min.js"></script>
+<script type="text/javascript" src="/static/js/openwindow.js"></script>
+<script type="text/javascript">
+function saveUser(){
+	var name=$("#name").val();
+	var email=$("#email").val();
+    var reg=/^\w+([-+.]\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*$/;
+    if($.trim(name)==''||$.trim(name)=='null'){
+        alert("姓名不能为空！");
+        return;
+    }
+    if($.trim(email)==''||$.trim(email)=='null'){
+                alert("电子邮箱不能为空！");
+                return;
+            }else if(!reg.test(email)){
+                alert("电子邮箱不合法！");
+                return;
+            }
+    $.get("/shop/updatePerson/",
+    $("form").serialize(),
+    function(data){
+        if(data["data"]=='success'){
+            alert("操作成功！");
+            window.location.reload();
+        }else{
+            alert('操作失败！');
+        }
+     });
+
+}
+function payWay(){
+				var url="../../media/1724417038522.jpg";
+			 	openWindow(url,500,290);
+			}
+function payW(){
+				var url="../../media/1724417499846.png";
+			 	openWindow(url,500,290);
+			}
+</script>
+<body>
+<!--网站顶部-->
+<input id="productId" type="hidden" value="{product.id}">
+<!--网站顶部-->
+<div class="webtop">
+  {% include "shop/top.html" %}
+</div>
+
+<!--搜索和导航-->
+<div class="sounav">
+  {% include "shop/search.html" %}
+</div>
+<form action="shop/updatePerson/" method="get">
+<!-- top5-->
+<div class="log">
+<div class="hkuang">
+  <div class="gwc_2">
+    <div class="gwc_4">
+        <table width="910" border="0" cellpadding="0" cellspacing="1" bgcolor="#E3E3E3">
+      <tr>
+        <td  bgcolor="#FFFFFF" width="100px;">账号 ：</td>
+        <td  bgcolor="#FFFFFF" width="200px">{{user.username}}</td>
+        <td  bgcolor="#FFFFFF">&nbsp;</td>
+      </tr>
+      <input type="hidden" id="id" name="id" value="{{user.id}}"></td>
+      <tr>
+        <td  bgcolor="#FFFFFF">我的余额：</td>
+        <td  bgcolor="#FFFFFF">{{user.balance}}</td>
+         <td  bgcolor="#FFFFFF"><input type="button"  onclick="payWay()" value="支付宝">
+         <input type="button"  onclick="payW()" value="微 信">
+         </td>
+      </tr>
+        <tr>
+        <td  bgcolor="#FFFFFF">手机：</td>
+        <td  bgcolor="#FFFFFF"><input type="text" name="user.mobile" value="{{user.mobile}}"></td>
+      <td  bgcolor="#FFFFFF"></td>
+      </tr>
+       <tr>
+        <td  bgcolor="#FFFFFF">真实姓名 ：</td>
+        <td bgcolor="#FFFFFF"><input type="text" id="name" name="user.name" value="{{user.first_name}}"></td>
+      <td  bgcolor="#FFFFFF">&nbsp;</td>
+      </tr>
+      <tr>
+        <td  bgcolor="#FFFFFF">收货地址 ：</td>
+        <td bgcolor="#FFFFFF"><input type="text"  name="user.address" value="{{user.address}}"></td>
+      <td  bgcolor="#FFFFFF">&nbsp;</td>
+      </tr>
+      <tr>
+        <td  bgcolor="#FFFFFF">邮箱 ：</td>
+        <td bgcolor="#FFFFFF"><input type="text" id="email" name="user.email" value="{{user.email}}"></td>
+      <td  bgcolor="#FFFFFF">&nbsp;</td>
+      </tr>
+
+    </table>
+    <table align="center">
+    	<tr>
+            <td>
+    		<input type="button"  onclick="saveUser()" value="确定">
+    		</td>
+    	</tr>
+    </table>
+        </div>
+  </div>
+</div>
+</div>
+</form>
+<div style="width:960px; height:auto; margin:10px auto 0 auto;">
+  {% include "shop/foot.html" %}
+
+</div>
+</body>
+</html>
